@@ -13,8 +13,20 @@ app.get("/", async function (req, res) {
   res.render("start", {});
 });
 
-app.get("/impressum", async function (req, res) {
-  res.render("impressum", {});
+app.get("/home", async function (req, res) {
+  res.render("home", {});
+});
+
+app.get("/posts", async function (req, res) {
+  res.render("posts", {});
+});
+
+app.get("/create", async function (req, res) {
+  res.render("create", {});
+});
+
+app.get("/saved", async function (req, res) {
+  res.render("saved", {});
 });
 
 /* Wichtig! Diese Zeilen müssen immer am Schluss der Website stehen! */
