@@ -52,9 +52,12 @@ h1 {
   height: 75px;
 }
 
+/* ---Landing Page----------------------------- */
+
 #landing-wrapper {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -62,10 +65,13 @@ h1 {
 
 .landing-img {
   width: 100%;
+  max-height: 100vh;
   position: absolute;
   top: 0;
   z-index: -1;
 }
+
+/* ---Home Page----------------------------- */
 
 #start {
   width: 70%;
@@ -79,12 +85,99 @@ h1 {
 .sign-up-btn {
   margin-top: 40px;
   padding: 20px 100px 20px 20px;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--color-white);
+  color: var(--color-black);
   border: none;
   border-radius: 5px;
 }
 
 .welcome-text {
   text-align: right;
+}
+
+.home-text {
+  text-align: center;
+  margin-top: 100px;
+}
+.home-text h2 {
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 20px var(--color-black);
+}
+.home-text p {
+  text-shadow: 1px 1px 20px var(--color-black);
+}
+
+/* ---Post Page----------------------------- */
+
+#sits {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-top: 100px;
+  row-gap: 100px;
+}
+
+#post-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: visible;
+}
+
+.site-img {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+
+.post-text {
+  text-align: center;
+  color: var(--color-black);
+}
+.post-text h2 {
+  margin-bottom: 20px;
+  /* text-shadow: 1px 1px 20px var(--color-black); */
+}
+.home-text p {
+  text-shadow: 1px 1px 20px var(--color-black);
+}
+
+/* ---Post List--- */
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  height: auto;
+  margin-bottom: 200px;
+}
+
+#post_id {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-radius: 15px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#post_id img {
+  width: 100%;
+  margin: 10px 0 20px 0;
+}
+#post_id a {
+  margin-bottom: 20px;
+  padding: 10px 40px;
+  background-color: var(--color-light-blue);
+  color: var(--color-white);
+  border-radius: 5px;
+}
+#post_id a:hover {
+  background-color: var(--color-blue);
 }
