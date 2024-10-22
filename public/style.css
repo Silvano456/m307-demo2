@@ -181,3 +181,16 @@ h1 {
 #post_id a:hover {
   background-color: var(--color-blue);
 }
+
+/* post-single */
+#single-post {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-radius: 15px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}

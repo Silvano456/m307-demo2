@@ -22,6 +22,13 @@ app.get("/posts", async function (req, res) {
   res.render("posts", { posts: posts.rows });
 });
 
+app.get("/post/:id", async function (req, res) {
+  const posts = await app.locals.pool.query(
+    `select * from posts WHERE id = ${req.params.id}`
+  );
+  res.render("post", { posts: posts.rows });
+});
+
 app.get("/create", async function (req, res) {
   res.render("create", {});
 });
