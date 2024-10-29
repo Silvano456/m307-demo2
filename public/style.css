@@ -193,4 +193,56 @@ h1 {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  gap: 20px;
+}
+#single-post a {
+  margin-bottom: 20px;
+  padding: 10px 40px;
+  background-color: var(--color-light-blue);
+  color: var(--color-white);
+  border-radius: 5px;
+}
+#single-post a:hover {
+  background-color: var(--color-blue);
+}
+
+/* ---Create Site--- */
+.create-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-radius: 15px;
+  height: 500px;
+  padding: 20px;
+}
+
+.create-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+}
+
+.create-form form input,
+.create-form form textarea {
+  width: 500px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--color-black);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#create-post-btn {
+  background-color: var(--color-light-blue);
+  border: none;
+  color: var(--color-white);
+}
+#create-post-btn:hover {
+  background-color: var(--color-blue);
+  cursor: pointer;
 }
