@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import multer from "multer";
 const upload = multer({ dest: "public/uploads/" });
 import sessions from "express-session";
+import bcrypt from "bcrypt";
 
 export function createApp(dbconfig) {
   const app = express();
@@ -30,6 +31,60 @@ export function createApp(dbconfig) {
   );
 
   app.locals.pool = pool;
+  app.get("/register", function (req, res) {
+    res.render("register");
+  });
+
+  app.post("/register", function (req, res) {
+    var password = bcrypt.hashSync(req.body.password, 10);
+    pool.query(
+      "INSERT INTO users (name, password) VALUES ($1, $2)",
+      [req.body.name, password],
+      (error, result) => {
+        if (error) {
+          console.log(error);
+        }
+        res.redirect("/login");
+      }
+    );
+  });
+
+  app.get("/login", function (req, res) {
+    res.render("login");
+  });
+
+  app.post("/login", function (req, res) {
+    pool.query(
+      "SELECT * FROM users WHERE name = $1",
+      [req.body.name],
+      (error, result) => {
+        if (error) {
+          console.log(error);
+        }
+        if (bcrypt.compareSync(req.body.password, result.rows[0].password)) {
+          req.session.userid = result.rows[0].id;
+          res.redirect("/");
+        } else {
+          res.redirect("/login");
+        }
+      }
+    );
+  });
+
+  app.get("/events/:id", async function (req, res) {
+    const event = await app.locals.pool.query(
+      "SELECT * FROM events WHERE id = $1",
+      [req.params.id]
+    );
+    const user_post_saved = await app.locals.pool.query(
+      "SELECT COUNT(user_id) FROM user_post_saved WHERE post_id = $1",
+      [req.params.id]
+    );
+    res.render("details", {
+      event: event.rows[0],
+      user_post_saved: user_post_saved.rows[0],
+    });
+  });
 
   return app;
 }

@@ -13,6 +13,9 @@
           <img src="/{{post_content}}" alt="{{post_content}}" />
           <a target="_blank" href="{{maps_link}}">Get Location</a>
           <a href="/post/{{id}}" class="btn">Details</a>
+          <form action="/user_post_saved/{{id}}" enctype="multipart/form-data" method="POST">
+            <input id="save-btn" type="submit" value="Save">
+          </form>
         </div>
         {{/posts}}
   </div>
