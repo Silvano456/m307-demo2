@@ -8,10 +8,11 @@
       </div>
       <div class="post-list">
           {{#posts}}
-          <div id="{{post_id}}">
+          <div id="post_id">
             <h2>{{post_title}}</h2>
-            <img src="{{post_content}}" alt="{{post_content}}" />
+            <img src="/uploads/{{post_content}}" alt="{{post_content}}" />
             <a target="_blank" href="{{maps_link}}">Get Location</a>
+            <a href="/post/{{id}}" class="btn">Details</a>
           </div>
           {{/posts}}
     </div>

@@ -1,15 +1,15 @@
 <div id="post-wrapper">
-  <img class="site-img" src="/background-img.jpg" alt="Background IMG" />
-  <div id="sits">
-    <div class="post-text">
-      <h2>
-        Post
-      </h2>
-    </div>
+    <img class="site-img" src="/background-img.jpg" alt="Background IMG" />
+    <div id="sits">
+      <div class="post-text">
+        <h2>
+          Post
+        </h2>
+      </div>
         {{#posts}}
         <div id="single-post">
           <h2>{{post_title}}</h2>
-          <img src="/{{post_content}}" alt="{{post_content}}" />
+          <img src="/uploads/{{post_content}}" alt="{{post_content}}" />
           <p>{{post_description}}</p>
           <a target="_blank" href="{{maps_link}}">Get Location</a>
         </div>

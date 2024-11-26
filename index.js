@@ -33,7 +33,7 @@ app.get("/create", async function (req, res) {
   res.render("create", {});
 });
 
-app.post("/create", upload.single("image"), async function (req, res) {
+app.post("/create", upload.single("post_content"), async function (req, res) {
   if (!req.session.userid) {
     res.redirect("/login");
     return;
@@ -43,12 +43,11 @@ app.post("/create", upload.single("image"), async function (req, res) {
   //   [req.params.id, req.session.userid]
   // );
 
-  res.redirect("/");
   const result = await app.locals.pool.query(
     "INSERT INTO posts (post_title, post_content, post_description, maps_link, user_id) VALUES ($1, $2, $3, $4, 1)",
     [
       req.body.post_title,
-      req.body.post_content,
+      req.file.filename,
       req.body.post_description,
       req.body.maps_link,
     ]

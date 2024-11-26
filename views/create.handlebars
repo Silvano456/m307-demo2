@@ -7,7 +7,7 @@
         </h2>
       </div>
       <div class="create-form">
-        <form action="/create" method="post">
+        <form action="/create" enctype="multipart/form-data" method="post">
             <input type="file" id="myFile" name="post_content">
             <input type="text" name="post_title" placeholder="Titel">
             <textarea name="post_description" placeholder="Beschreibung" id="description" rows="5"></textarea>
