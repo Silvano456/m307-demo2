@@ -33,6 +33,7 @@ app.get("/create", async function (req, res) {
   res.render("create", {});
 });
 
+// Mit diesem Code wird überprüft ob du eingelogt bist um einen Post zu erstellen
 app.post("/create", upload.single("post_content"), async function (req, res) {
   if (!req.session.userid) {
     res.redirect("/login");
@@ -56,6 +57,7 @@ app.post("/create", upload.single("post_content"), async function (req, res) {
   res.redirect("/");
 });
 
+// Mit diesem Code wird geschuat on der richtige User eingelogt ist
 app.get("/saved", async function (req, res) {
   // const saved = await app.locals.pool.query("select * from user_post_saved");
   if (!req.session.userid) {
@@ -69,6 +71,7 @@ app.get("/saved", async function (req, res) {
   res.render("saved", { posts: posts.rows });
 });
 
+// Mit diesem Code wird geschaut ob du überhaupt eingelogt bist, da du sontst gar keine gespeichrten Inhalte anschauen kannst
 app.post("/user_post_saved/:id", async function (req, res) {
   if (!req.session.userid) {
     res.redirect("/login");

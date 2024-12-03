@@ -35,6 +35,7 @@ export function createApp(dbconfig) {
     res.render("register");
   });
 
+// Mit diesem Code wird ein neuer User angelegt und in die Datenbank gespeichert
   app.post("/register", function (req, res) {
     var password = bcrypt.hashSync(req.body.password, 10);
     pool.query(
@@ -53,6 +54,7 @@ export function createApp(dbconfig) {
     res.render("login");
   });
 
+// Mit diesem Code wird das Login Formular mit der Datenbank abgeglichen und schaut ob dieser User schon gegeben ist oder nicht, oder ob etwas Flasch eingegeben sit
   app.post("/login", function (req, res) {
     pool.query(
       "SELECT * FROM users WHERE name = $1",
@@ -71,6 +73,7 @@ export function createApp(dbconfig) {
     );
   });
 
+// Mit diesem Code werden die Gespeichrten Posts angeziegt die ein User mit gespeichrt hat.
   app.get("/events/:id", async function (req, res) {
     const event = await app.locals.pool.query(
       "SELECT * FROM events WHERE id = $1",
